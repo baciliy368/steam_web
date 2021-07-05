@@ -1,17 +1,24 @@
-const { chromium } = require('playwright');
-
+const {contextOptions} = require('../jest-playwright.config')
 class Browser {
-  constructor() {
-    this.driver; 
+  
+  async ControlDownloadAction(path) {
+    const [download] = await Promise.all([
+      await page.waitForEvent(PageActions.Donload)
+    ]);
+    var fileName = download.suggestedFilename();
+    var pathToSave = `${path}/${fileName}`;
+    await download.saveAs(pathToSave);
   }
 
-  async start() {
-    this.driver = await chromium.launch({ headless: false });
+  async GetLocale() 
+  {
+    return contextOptions.locale;     
   }
-
-  async quite() {
-    await this.driver.close();
-  }
+  
 }
 
-module.exports = new Browser();
+const PageActions = {
+  Donload: 'download'
+}
+
+module.exports = new Browser;
