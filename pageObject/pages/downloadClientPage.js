@@ -1,7 +1,7 @@
 const BaseView = require('../../framework/webElements/base/baseView');
 const Button = require('../../framework/webElements/controls/button');
 const Browser = require('../../framework/browser');
-const SteamBasePage = require('./steamBasePage');
+const SteamBasePage = require('./basePages/steamBasePage');
 
 class DownloadClientPage extends SteamBasePage {
     constructor() {
@@ -12,7 +12,7 @@ class DownloadClientPage extends SteamBasePage {
 
     async startDownloadAction(path) {
         await this.downloadButton.click();
-        await Browser.ControlDownloadAction(path);
+        await Browser.сontrolDownloadAction(path);
     }
 }
 

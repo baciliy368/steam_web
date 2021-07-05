@@ -9,6 +9,10 @@ class BaseElement {
   async isElementDisplayed(){
     return page.isDisabled(this.loc);
   }
+
+  async hoverMouse(){
+    page.hover(this.loc);
+  }
   
   async click(){
     return await page.click(this.loc);

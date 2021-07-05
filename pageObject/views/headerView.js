@@ -7,10 +7,6 @@ class HeaderView extends BaseView {
     }
     
     get downloadButton() { return new Button(locators.installButton, 'Install button'); }
-
-    async clickDownloadButton() {
-        return await this.downloadButton.click();
-    }
 }
 
 const locators = {

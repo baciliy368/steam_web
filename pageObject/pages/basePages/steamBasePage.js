@@ -1,5 +1,5 @@
-const BasePage = require('../../framework/webElements/base/basePage');
-const HeaderView = require('../views/headerView');
+const BasePage = require('../../../framework/webElements/base/basePage');
+const HeaderView = require('../../views/headerView');
 
 class SteamBasePage extends BasePage {
     constructor(urlEndpoint, locator, name) {
@@ -7,7 +7,9 @@ class SteamBasePage extends BasePage {
         this.url = `https://store.steampowered.com/${urlEndpoint}`;
     }
     
-    get topStaticPanel() { return new HeaderView(); }
+    get topStaticPanel() {
+        return new HeaderView();
+    }
 
     async openInstallPage() {
         await this.topStaticPanel.clickDownloadButton();

@@ -1,16 +1,18 @@
-const BasePage = require('../../framework/webElements/base/basePage');
-const HeaderView = require('../views/headerView');
-const SteamBasePage = require('./steamBasePage');
+const StoreTopMenu = require('../views/storeTopMenu');
+const SteamBaseStorePage = require('./basePages/steamBaseStorePage');
 
-class SteamMainPage extends SteamBasePage {
+class SteamMainPage extends SteamBaseStorePage {
     constructor() {
         super('', locators.storeContent, "Steam Main Page");
     }
+
+    get storeTopView() {
+        return new StoreTopMenu(); 
+    }
 }
 
-
 const locators = {
-    storeContent: '[class="home_page_body_ctn   "]',
+    storeContent: '[class="home_page_body_ctn   "]'
 }
 
 module.exports = SteamMainPage;
