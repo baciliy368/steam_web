@@ -6,9 +6,6 @@ class SteamMainPage extends SteamBaseStorePage {
         super('', locators.storeContent, "Steam Main Page");
     }
 
-    get storeTopView() {
-        return new StoreTopMenu(); 
-    }
 }
 
 const locators = {

@@ -8,4 +8,4 @@ class Button extends BaseElement {
   async click(){ page.click(this.loc); }
 }
 
-module.exports = BaseElement;
+module.exports = Button;

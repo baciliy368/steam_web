@@ -1,5 +1,6 @@
 const DownloadClientPage = require('../pageObject/pages/downloadClientPage');
 const SteamMainPage = require('../pageObject/pages/steamMainPage');
+const SteamCategoryPage = require('../pageObject/pages/steamCategoryPage');
 
 class SteamMainPageSteps {
   
@@ -11,12 +12,10 @@ class SteamMainPageSteps {
     await downloadClientPage.startDownloadAction('testingFiles');
   }
   
-  async selectValueFromTopMenuDropdown(topMenuValue, valueFromDropdown) {
+  async selectValueFromStoreTopMenuDropdown(topMenuValue, valueFromDropdown) {
     var steamMainPage = new SteamMainPage();
     await steamMainPage.goto();
-    await steamMainPage
-            .storeTopView
-            .selectValueFromTopMenuDropDownMenu(topMenuValue, valueFromDropdown);
+    await steamMainPage.storeTopMenu.selectValueFromStoreTopMenuDropDown(topMenuValue, valueFromDropdown);
   }
 }
 

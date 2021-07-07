@@ -1,4 +1,4 @@
-const HeaderView = require('../../views/headerView');
+const StoreTopMenu = require('../../views/storeTopMenu');
 const SteamBasePage = require('./steamBasePage');
 
 class SteamBaseStorePage extends SteamBasePage {
@@ -6,9 +6,7 @@ class SteamBaseStorePage extends SteamBasePage {
         super(url, loc, name);
     }
 
-    get storeTopView() {
-        return new StoreTopMenu(); 
-    }
+    get storeTopMenu() { return new StoreTopMenu(); }
 }
 
 module.exports = SteamBaseStorePage;

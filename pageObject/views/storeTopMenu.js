@@ -7,22 +7,20 @@ class StoreTopMenu extends BaseView {
         super(locators.StoreTopMenuLoc, 'Store top menu');
     }
 
-    async selectValueFromTopMenuDropDownMenu(menuButtonName, dropDownValue)
+    async selectValueFromStoreTopMenuDropDown(menuButtonName, dropDownValue)
     {
         await this.openDropDownFromMenuButtonByText(menuButtonName);
         await this.clickOnDropDownItemFromMenuByText(dropDownValue);
     }
     
     async openDropDownFromMenuButtonByText(menuButtonName) {
-        //var menuButton = new Button(locators.MenuItemLoc + menuButtonName, `${menuButtonName} Top Menu Button`);
         var menuButton = new Button(locators.MenuItemLoc(menuButtonName),
                                     `${menuButtonName} Top Menu Button`);
         await menuButton.hoverMouse();
     }
     
     async clickOnDropDownItemFromMenuByText(menuButtonName) {
-        var menuButton = new Button(locators.DropDownItemLoc(menuButtonName),
-          `                         ${menuButtonName} button from Dropdown`);
+        var menuButton = new Button(locators.DropDownItemLoc(menuButtonName), `${menuButtonName} button from Dropdown`);
         await menuButton.click();
     }
 }

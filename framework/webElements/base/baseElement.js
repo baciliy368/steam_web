@@ -1,4 +1,4 @@
-const browser = require('../../browser');
+const browser = require('../../browserHelper');
 
 class BaseElement {
   constructor(loc, name){
@@ -15,7 +15,12 @@ class BaseElement {
   }
   
   async click(){
-    return await page.click(this.loc);
+    return await this.getElement().click();
+  }
+
+  async getElement()
+  {
+    return page.$(this.loc);
   }
 }
 

@@ -1,21 +1,22 @@
 const { isFileExistInTestFiles } = require('../utils/fileUtil');
 const { GetLocalizedStringsProperty } = require('../utils/localizedStringsUtil');
-const SteamMainPage = require('../pageObject/pages/steamMainPage');
-const StoreTopMenu = require('../pageObject/views/storeTopMenu');
-const SteamUiSteps = require('../steps/steam_ui_steps');
+const SteamMainPageSteps = require('../steps/steamMainPageSteps');
+const steamCategoryPageSteps = require('../steps/steamCategoryPageSteps');
 
 describe("Steam test", () => {
   
   /*(test("Download client test", async () => {
-    await SteamUiSteps.downloadClient();
+    await SteamMainPageSteps.downloadClient();
     await expect(isFileExistInTestFiles('SteamSetup.exe')).toBe(true);
   })*/
 
-  test("Discount test", async () => 
+  test("Top Discount for game test", async () => 
   {
     var topMenuValue = await GetLocalizedStringsProperty().Categories;
     var valueFromDropdown = await GetLocalizedStringsProperty().Actions;
-    await SteamUiSteps.selectValueFromTopMenuDropdown(topMenuValue, valueFromDropdown);
+    await SteamMainPageSteps.selectValueFromStoreTopMenuDropdown(topMenuValue, valueFromDropdown);
+    await steamCategoryPageSteps.getGamesFromTopSallersTabOnGameCategoryPage(valueFromDropdown);
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await expect(isFileExistInTestFiles('SteamSetup.exe')).toBe(true);
   })
 });
